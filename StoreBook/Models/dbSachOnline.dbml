@@ -88,4 +88,10 @@
       <Association Name="TACGIA_VIETSACH" Member="TACGIA" ThisKey="MaTG" OtherKey="MaTG" Type="TACGIA" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="TenDN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

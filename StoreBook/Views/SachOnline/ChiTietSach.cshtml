@@ -19,10 +19,10 @@
     </p>
     <p class="giaban">Giá bán: <span>@Html.FormatValue(@Model.Giaban, "{0:#,##0}") VNĐ</span></p>
     <p class="addtocard">
-        <a href="@Url.Action("AddToCard","ShoppingCard") new {id = @Model.MaSach}" class="btn btn-primary" role="button">
+        <a href="@Url.Action("ThemGioHang","GioHang", new { ms = Model.MaSach, url = Request.Url.ToString() })" class="btn btn-primary" role="button">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
-                Add to card
-            </span>
+
+            </span>Add to card
 
         </a>
     </p>

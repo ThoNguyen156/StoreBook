@@ -149,6 +149,14 @@ namespace StoreBook.Models
 				return this.GetTable<VIETSACH>();
 			}
 		}
+		
+		public System.Data.Linq.Table<ADMIN> ADMINs
+		{
+			get
+			{
+				return this.GetTable<ADMIN>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETDATHANG")]
@@ -1942,6 +1950,51 @@ namespace StoreBook.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ADMIN")]
+	public partial class ADMIN
+	{
+		
+		private string _TenDN;
+		
+		private string _MatKhau;
+		
+		public ADMIN()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDN", DbType="NVarChar(50)")]
+		public string TenDN
+		{
+			get
+			{
+				return this._TenDN;
+			}
+			set
+			{
+				if ((this._TenDN != value))
+				{
+					this._TenDN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NVarChar(50)")]
+		public string MatKhau
+		{
+			get
+			{
+				return this._MatKhau;
+			}
+			set
+			{
+				if ((this._MatKhau != value))
+				{
+					this._MatKhau = value;
+				}
 			}
 		}
 	}

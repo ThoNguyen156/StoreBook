@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<StoreBook.Models.SACH>
-
 @{
     ViewBag.Title = "SachTheoNhaXuatBan";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +17,7 @@
                         <a href="@Url.Action("ChiTietSach","SachOnilne",new { id = sach.MaSach })">@sach.TenSach</a>
                     </h4>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">
+                        <a href="@Url.Action("ThemGioHang","GioHang", new { ms = sach.MaSach, url = Request.Url.ToString() })" class="btn btn-primary" role="button">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart
                         </a>
                     </p>
@@ -29,4 +28,3 @@
     }
 
 </div>
-
