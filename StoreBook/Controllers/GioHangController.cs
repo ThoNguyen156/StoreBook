@@ -121,7 +121,11 @@ namespace StoreBook.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            if(Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return Redirect("~/User/DangNhap?id=2");
+            }
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
             {
                 return RedirectToAction("Dangnhap", "User");
             }    
@@ -138,6 +142,7 @@ namespace StoreBook.Controllers
         [HttpPost]
         public ActionResult DatHang(FormCollection f)
         {
+            int state = int.Parse(Request.QueryString["id"]);
             DONDATHANG ddh = new DONDATHANG();
             KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
             List<Giohang> lstGiohang = Laygiohang();
@@ -158,6 +163,18 @@ namespace StoreBook.Controllers
                 ctdh.Dongia = (decimal)item.dDonGia;
                 db.CHITIETDATHANGs.InsertOnSubmit(ctdh);
             }
+            if(kh != null)
+            {
+                Session["TaiKhoan"] = kh;
+                if (state == 1)
+                {
+                    return RedirectToAction("Index", "SachOnline");
+                }
+                else
+                {
+                    return RedirectToAction("DatHang", "GioHang");
+                }
+            }    
             db.SubmitChanges();
             Session["GioHang"] = null;
             return RedirectToAction("XacNhanDonHang", "GioHang");

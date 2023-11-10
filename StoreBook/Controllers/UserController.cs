@@ -93,6 +93,7 @@ namespace StoreBook.Controllers
         }
         public ActionResult Dangnhap(FormCollection collection)
         {
+
             var sTenDN = collection["TenDN"];
             var sMatKhau = collection["MatKhau"];
             if(String.IsNullOrEmpty(sTenDN))
@@ -116,7 +117,7 @@ namespace StoreBook.Controllers
                     ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
                 }    
             }
-            return View();
+            return RedirectToAction("Index", "SachOnline");
         }
     }
 }

@@ -36,6 +36,7 @@ namespace StoreBook.Areas.Admin.Controllers
             }
             return View();
         }
+
         // GET: Admin/Home
         public ActionResult Index()
         {

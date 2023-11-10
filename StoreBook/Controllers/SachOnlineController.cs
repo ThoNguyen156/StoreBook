@@ -60,6 +60,11 @@ namespace StoreBook.Controllers
             return View(sach);
         }
 
+        public ActionResult LoginLogout()
+        {
+            return PartialView("LoginLogoutPartial");
+        }
+
         public ActionResult ChiTietSach(int id)
         {
             var sach = data.SACHes.FirstOrDefault(s => s.MaSach == id);
